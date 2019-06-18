@@ -1,16 +1,13 @@
 let nextTodoId = 0;
-const ADD_TODO = 'ADD_TODO';
-const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
-const TOGGLE_TODO = 'TOGGLE_TODO';
 
 /**
  * 创建添加待办事项的动作
  *
  * @param text 待办事项标题
  */
-function addTodo(text: string) {
+function addTodo(text: string): AddTodoAction {
   return {
-    type: ADD_TODO,
+    type: 'ADD_TODO',
     payload: {
       id: nextTodoId++,
       text,
@@ -23,9 +20,11 @@ function addTodo(text: string) {
  *
  * @param filter 过滤条件
  */
-function setVisibilityFilter(filter: VISIBILITY_FILTER) {
+function setVisibilityFilter(
+  filter: VISIBILITY_FILTER,
+): SetVisibilityFilterAction {
   return {
-    type: SET_VISIBILITY_FILTER,
+    type: 'SET_VISIBILITY_FILTER',
     payload: filter,
   };
 }
@@ -35,18 +34,11 @@ function setVisibilityFilter(filter: VISIBILITY_FILTER) {
  *
  * @param id 待办事项id
  */
-function toggleTodo(id: number) {
+function toggleTodo(id: number): ToggleTodoAction {
   return {
-    type: TOGGLE_TODO,
+    type: 'TOGGLE_TODO',
     payload: id,
   };
 }
 
-export {
-  addTodo,
-  setVisibilityFilter,
-  toggleTodo,
-  ADD_TODO,
-  SET_VISIBILITY_FILTER,
-  TOGGLE_TODO,
-};
+export { addTodo, setVisibilityFilter, toggleTodo };

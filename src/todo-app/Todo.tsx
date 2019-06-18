@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { toggleTodo } from '../actions';
 
 interface Props {
+  /**
+   * 待办事项
+   */
   todo: Todo;
 }
 

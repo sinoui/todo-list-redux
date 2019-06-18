@@ -1,8 +1,17 @@
 /// <reference types="react-scripts" />
 
+/**
+ * 待办事项
+ */
 interface Todo {
   id: number;
+  /**
+   * 标题
+   */
   text: string;
+  /**
+   * 是否已完成
+   */
   completed?: boolean;
 }
 
