@@ -74,3 +74,21 @@ interface ToggleTodoAction {
  * * SHOW_COMPLETED - 显示已完成的待办事项
  */
 type VISIBILITY_FILTER = 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED';
+
+/**
+ * 删除所有已完成的列表
+ */
+
+interface DeleteCompleteAction {
+  type: 'DELETE_COMPLETE';
+  payload: string;
+}
+
+/**
+ * 更新待办事项标题
+ */
+interface UpdateTitleAction {
+  type: 'UPDATE_TITLE';
+  payload: number;
+  text: string;
+}

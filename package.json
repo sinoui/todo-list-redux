@@ -4,17 +4,31 @@
   "private": true,
   "homepage": "https://sinoui.github.io/todo-list-redux",
   "dependencies": {
+    "@sinoui/data-table": "^0.1.22",
+    "@sinoui/forms": "^0.1.22",
+    "@sinoui/use-rest-item-api": "^0.2.1",
+    "@sinoui/use-rest-table": "^0.1.3",
     "@types/jest": "24.0.15",
     "@types/node": "12.0.8",
     "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
     "@types/react-redux": "^7.1.0",
+    "@types/react-router-dom": "^4.3.4",
+    "connect-multiparty": "^2.2.0",
+    "md5-file": "^4.0.0",
+    "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
-    "react-scripts": "3.0.1",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "^3.0.1",
+    "react-textarea-autosize": "^7.1.0",
     "redux": "^4.0.1",
-    "typescript": "3.5.2"
+    "styled-components": "^3.4.10",
+    "typescript": "^3.5.2",
+    "unstated-next": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +55,6 @@
   },
   "devDependencies": {
     "gh-pages": "^2.0.1"
-  }
+  },
+  "proxy": "http://localhost:4000/"
 }
