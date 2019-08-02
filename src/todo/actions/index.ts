@@ -1,3 +1,7 @@
+/**
+ * redux
+ */
+
 let nextTodoId = 0;
 
 /**
