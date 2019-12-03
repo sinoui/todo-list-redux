@@ -54,6 +54,7 @@ app.get('/users/:id', (req, res) => {
 
   if (user) {
     res.json(user);
+    console.log(user)
   } else {
     res.sendStatus(404).end();
   }
