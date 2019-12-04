@@ -1,12 +1,13 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  }),
+);
 app.use(bodyParser.json());
-
 
 const items = [];
 
@@ -16,7 +17,7 @@ for (let i = 0; i < 100; i++) {
     gid: `${i}`,
     userId: `${i}`,
     userName: `王先生${i + 1}`,
-    age: `${i+1}`,
+    age: `${i + 1}`,
     branchNo: '机构代码',
     branchName: `广西壮族自治区分行001${i + 1}`,
     deptId: `00100${i}`,
@@ -31,11 +32,9 @@ for (let i = 0; i < 100; i++) {
 
 let idSeed = 1000;
 
-// 
-app.get("/users", (req, res) => {
-  const {
-    page = 0, size = 10
-  } = req.query;
+//
+app.get('/users', (req, res) => {
+  const { page = 0, size = 10 } = req.query;
   const pageNo = parseInt(page, 10);
   res.json({
     totalElements: items.length,
@@ -47,36 +46,30 @@ app.get("/users", (req, res) => {
 });
 
 app.get('/users/:id', (req, res) => {
-  const {
-    id
-  } = req.params;
+  const { id } = req.params;
   const user = items.find((item) => item.id === id);
 
   if (user) {
     res.json(user);
-    console.log(user)
+    console.log(user);
   } else {
     res.sendStatus(404).end();
   }
-})
+});
 
 app.post('/users', (req, res) => {
-  const {
-    body
-  } = req;
+  const { body } = req;
   const newItem = {
     ...body,
-    id: `${idSeed++}`
-  }
+    id: `${idSeed++}`,
+  };
   items.unshift(newItem);
   res.json(newItem);
-})
+});
 
 app.put('/users/:id', (req, res) => {
   const newItem = req.body;
   const idx = items.findIndex((item) => item.id === newItem.id);
-
-
 
   if (idx === -1) {
     res.sendStatus(404);
@@ -84,13 +77,10 @@ app.put('/users/:id', (req, res) => {
     items.splice(idx, 1, newItem);
     res.json(newItem);
   }
-
 });
 
 app.delete('/users/:id', (req, res) => {
-  const {
-    id
-  } = req.params;
+  const { id } = req.params;
   const idx = items.findIndex((item) => item.id === id);
 
   if (idx === -1) {
@@ -99,19 +89,17 @@ app.delete('/users/:id', (req, res) => {
     items.splice(idx, 1);
     res.sendStatus(204);
   }
-})
-
+});
 
 const server = app.listen(4000, () => {
-  const {
-    address: host,
-    port
-  } = server.address();
+  const { address: host, port } = server.address();
 
   // tslint:disable-next-line:no-console
   console.log(
-    "newoa-api-mock-server app listening as http://%s:%s",
+    'newoa-api-mock-server app listening as http://%s:%s',
     host,
-    port
+    port,
   );
 });
+
+// app.listen('4000');
